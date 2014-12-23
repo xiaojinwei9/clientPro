@@ -1,4 +1,6 @@
 import org.junit.*;
+
+import play.Logger;
 import play.test.*;
 import play.mvc.*;
 import play.mvc.Http.*;
@@ -13,5 +15,8 @@ public class ApplicationTest extends FunctionalTest {
         assertContentType("text/html", response);
         assertCharset(play.Play.defaultWebEncoding, response);
     }
-    
+    @Test
+    public void testGet(){
+    	Logger.info("go");
+    }
 }
