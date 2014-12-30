@@ -9,11 +9,14 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
 import javax.activation.MimetypesFileTypeMap;
+
+import play.Logger;
 
 public class HttpUtils {
 
@@ -22,21 +25,35 @@ public class HttpUtils {
 	 */
 	public static void main(String[] args) {
 		
+		String privateKey=StrUtils.md5("taskApiWeb");
+		System.out.println(privateKey);
 		String filepath="E:\\ziliao\\0.jpg";
 		
-		String urlStr = "http://www.taskapi.com/testapi/test";
-		
-		Map<String, String> textMap = new HashMap<String, String>();
-	
-		textMap.put("paramA", "1");
-		textMap.put("paramB", "asdfasdf中文");
-		textMap.put("paramC", "asdfasdf 不是吧");
-
+		String urlStr = "http://www.recb.com.cn/testapi/add";
+		//String urlStr = "http://www.taskapi.com/testapi/add";
+		//String urlStr = "http://www.recb.com.cn/testapi/del";
+		//String urlStr = "http://www.recb.com.cn/testapi/get";
+		Map<String, String> paramsMap = new HashMap<String, String>();
+		paramsMap.put("userId", "200A");
+		paramsMap.put("userName", "xiaojinVVV不是吧");
+		paramsMap.put("sysId", "web");
+		Object[] paramsKeys = paramsMap.keySet().toArray();
+		Arrays.sort(paramsKeys);//升序
+		String tokenPre = "";
+		for (int i = 0; i < paramsKeys.length; i++) {
+			    String value=StrUtils.escape(paramsMap.get(paramsKeys[i]));//escape
+			    paramsMap.put(paramsKeys[i]+"",value);
+			    tokenPre += value;
+		}
+		tokenPre+="829c70fe3772013f22faa6620a411f3b";//需保密码,与sysId是一对值,一个sysId分配唯一token
+		Logger.info("checkToken-tokenPre:" + tokenPre);
+		String md5Token=StrUtils.md5(tokenPre);
+		paramsMap.put("token", md5Token);
 		Map<String, String> fileMap = new HashMap<String, String>();
 		
 		//fileMap.put("userfile", filepath);
 		
-		String ret = formUpload(urlStr, textMap, fileMap);
+		String ret = formUpload(urlStr, paramsMap, fileMap);
 		
 		System.out.println(ret);
 		
@@ -90,7 +107,7 @@ public class HttpUtils {
 							+ inputName + "\"\r\n\r\n");
 					strBuf.append(inputValue);
 				}
-				out.write(strBuf.toString().getBytes());
+				out.write(strBuf.toString().getBytes("utf-8"));
 			}
 
 			// file
