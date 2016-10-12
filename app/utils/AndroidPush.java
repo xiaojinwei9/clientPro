@@ -72,7 +72,7 @@ public class AndroidPush {
 		AndroidPush send=new AndroidPush();
 		Long channelId=4561520892395290272L;
         String userId="707293214236580838";
-        String message="{\"title\":\"就医助手\",\"description\":\"您预约了明天XXX医生的号，请提前准备就诊资料，如不能就诊请及时取消。\",\"open_type\":3,\"custom_content\": {\"url\":\"http://wapyyk.39.net/register.html?id=12343214\",\"des\":\"自字义字段2\"}}";
+        String message="{\"title\":\"就医助手\",\"description\":\"您预约了明天XXX医生的号，请提前准备就诊资料，如不能就诊请及时取消。\",\"open_type\":3,\"custom_content\": {\"url\":\"http://wwwxxxx/register.html?id=12343214\",\"des\":\"自字义字段2\"}}";
         send.sendpush(channelId, userId, message);
 	}
 	
