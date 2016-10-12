@@ -32,7 +32,7 @@ public class HttpUtils {
     
     public static void readContentFromGet() throws IOException{
     	String con="VV段主任医术高明，我还是四五年前在他那<script>alert('aaa')</script>里治疗的，到现在还是很好，最主要的是他的医德高尚，心肠好不图回报，仁心仁术不象有的医生那么不地道，我衷心地祝福他及全家平安幸福。段主任医术高明，我还是四五年前在他那里治疗的，到现在还是很好，最主要的是他的医德高尚，心肠好不图回报，仁心仁术不象有的医生那么不地道，我衷心地祝福他及全家平安幸福。";
-        String GET_URL = "http://api.yyk.39.net"
+        String GET_URL = "http://wwwwww.net"
     	//System.out.println("md5after:"+StrUtils.md5("addr=%CC%EC%BA%D3%C7%F8,areaCode=44,cityCode=4401,email=234124@qq.com,idCardNo=130201198301030071,name=%E6%C3%E6%C3,ph=13800138000,pid=23538128,PrivateKey=8d992bcce652e9e222b2391c3eb88947,token=cb4e40ee95bf05bddeb80bc5e113df77,uuid=iosv2"));
     	//String GET_URL = "http://172.16.1.48:80"
     	 //String GET_URL = "http://127.0.0.1:80"
@@ -78,7 +78,7 @@ public class HttpUtils {
     			paramsMap.put(param[0], "");
     		}
     	}
-    	paramsMap.put("PrivateKey","14c234c6deb5dca67f26f3b4169d1dd3");//把私钥加入运算之中
+    	paramsMap.put("PrivateKey","14c234c6deb5dcsdffafasfd3b4169d1dd3");//把私钥加入运算之中
     	String[] paramsKeys = (String[])paramsMap.keySet().toArray(new String[0]);
 		Arrays.sort(paramsKeys, String.CASE_INSENSITIVE_ORDER);//忽略大小写,升序
 		 StringBuilder sb = new StringBuilder();
