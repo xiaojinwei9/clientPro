@@ -102,7 +102,7 @@ public class IosPush {
 		List<String> tokens=new ArrayList<String>();
 		tokens.add("d8ac04670260d332e1855bb6e8482489870111bd7dafdad2a325e66a85a426bd");
 		//tokens.add("dc2cf037bd4465c851b1d96a86b0a028307bc7e443435b6fafe93c2957bb415c");
-		String message="{'aps':{'alert':'iphone推送测试alert2AAA'},'url':'http://wapyyk.39.net/gz/zonghe/4cc90.html'}";
+		String message="{'aps':{'alert':'iphone推送测试alert2AAA'},'url':'http://wwwwww.net/gz/zonghe/4cc90.html'}";
 		Integer count=1;
 		boolean sendCount=true;
 		send.sendpush(tokens,message,"内容内容",count, sendCount);
